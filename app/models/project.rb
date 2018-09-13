@@ -1,3 +1,4 @@
 class Project < ApplicationRecord
-  belongs_to :employee
+  has_many :pictures, as: :imageable
+  belongs_to :employee, touch: true
 end

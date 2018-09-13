@@ -1,0 +1,8 @@
+<li>
+  <%= employee.name%>
+  <%= employee.projects.each do |project| %>
+<% cache project do %>
+       <%= render partial: "employees/project", locals: {project: project} %>
+<%end%>
+<%end%>
+</li>

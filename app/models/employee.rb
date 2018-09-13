@@ -1,5 +1,5 @@
 class Employee < ApplicationRecord
-
+  include MainConcern
   has_many :projects
   has_many :histories
   # validates :name, presence: true, name: true
@@ -69,4 +69,5 @@ class Employee < ApplicationRecord
     yield
     puts "calling around out save"
   end
+
 end
