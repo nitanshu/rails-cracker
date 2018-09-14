@@ -1,0 +1,9 @@
+<%= form_for @employee do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <%= f.fields_for :projects do |project|%>
+        Project <%= project.label :name%>
+        <%= project.text_field :name%>
+    <% end %>
+    <%= f.submit%>
+<% end %>

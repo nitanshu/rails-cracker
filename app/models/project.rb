@@ -1,4 +1,6 @@
 class Project < ApplicationRecord
+  enum availability: [:available, :unavailable]
   has_many :pictures, as: :imageable
-  belongs_to :employee, touch: true
+  validates :name, presence: true
+  belongs_to :employee, touch: true, optional: true
 end

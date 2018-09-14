@@ -1,32 +1,26 @@
 class EmployeesController < ApplicationController
-  # include ActionController::Live
-
-  USERS = { "lifo" => "world" }
-
-  before_action :authenticate
-
-  private
-
-  def authenticate
-    authenticate_or_request_with_http_digest do |username|
-      USERS[username]
-    end
-  end
-
+  before_action :santize_params
   def index
     @employees = Employee.all
+    @m=Employee.all
+    @p=History.all
+  end
+  def custom
+    @test = 'test'
+  end
+  def create
+    @employee =  Employee.new(name: params[:employee][:name])
+  end
+def new
+  @employee = Employee.new
+  2.times { @employee.projects.build }
+end
 
-    flash.now[:error] = 'Play it now '
+  def show
 
-
-    #
-    #   response.headers['Content-Type'] = 'text/event-stream'
-    #   100.times {
-    #     response.stream.write "hello world\n"
-    #     sleep 1
-    #   }
-    # ensure
-    #   response.stream.close
-
+  end
+private
+  def santize_params
+    params.require(:employee).permit(:name, project_attributes: {})
   end
 end
