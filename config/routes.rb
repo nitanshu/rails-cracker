@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
-  get 'employees/index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :projects
+  get 'projects/custom2'
+  resources :employees
 end
