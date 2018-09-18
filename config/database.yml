@@ -8,12 +8,12 @@ default: &default
   adapter: mysql2
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   timeout: 5000
-  password: ranusoni
 
 development:
   <<: *default
   database: rails_cracker_dev
   username: root
+  password: nitin
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,10 +22,11 @@ test:
   <<: *default
   database: rails_cracker_test
   username: root
-
+  password: nitin
 
 production:
   <<: *default
   database: rails_cracker_pro
   username: root
+  password: nitin
 

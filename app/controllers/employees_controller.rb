@@ -1,7 +1,7 @@
 class EmployeesController < ApplicationController
-  before_action :santize_params
+  # before_action :santize_params
   def index
-    @employees = Employee.all
+    @employees = Employee.all.decorate
     @m=Employee.all
     @p=History.all
   end
