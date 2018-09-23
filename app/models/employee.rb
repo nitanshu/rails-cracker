@@ -1,4 +1,5 @@
 class Employee < ApplicationRecord
+
   include MainConcern
   has_many :projects, -> {extending FindRecentExtension}, autosave: true, validate: true
   has_many :histories
