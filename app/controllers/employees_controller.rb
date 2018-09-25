@@ -1,5 +1,7 @@
 class EmployeesController < ApplicationController
   # before_action :santize_params
+  # before_action :fetch_employee, only: [:new]
+
   def index
     @employees = Employee.all.decorate
     @m=Employee.all
@@ -22,5 +24,8 @@ end
 private
   def santize_params
     params.require(:employee).permit(:name, project_attributes: {})
+  end
+  def fetch_employee
+    @employee= Employee.find 1
   end
 end
