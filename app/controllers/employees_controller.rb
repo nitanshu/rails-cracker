@@ -1,7 +1,5 @@
 class EmployeesController < ApplicationController
   # before_action :santize_params
-  # before_action :fetch_employee, only: [:new]
-
   def index
     @employees = Employee.all.decorate
     @m=Employee.all

@@ -62,6 +62,8 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'mysql2'
 gem 'jquery-rails'
+gem 'brakeman'
+gem 'rubocop'gem 'jquery-rails'
 gem 'draper'
 gem 'redis'
 gem 'sidekiq'
