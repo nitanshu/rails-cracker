@@ -8,7 +8,8 @@ class Employee < ApplicationRecord
   belongs_to :manager, class_name: 'Employee', optional: true
   has_many :pictures, as: :imageable
   accepts_nested_attributes_for :projects
-  # validates :name, presence: true, name: true
+  validates :name, presence: true
+  validates :salary, presence: true
   after_find :call_find
   after_initialize :call_initialize
   after_validation :call_after_validation

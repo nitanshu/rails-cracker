@@ -3,5 +3,5 @@ class Project < ApplicationRecord
   has_many :pictures, as: :imageable
   validates :name, presence: true
   belongs_to :employee, touch: true, optional: true
-  serialize :properties, JSON
+  # serialize :properties, JSON
 end
