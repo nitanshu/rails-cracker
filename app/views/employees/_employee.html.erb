@@ -1,9 +1,10 @@
 <li>
   <%= employee_counter %>
-  <%= employee.modified_name%>
+  <%#= employee.modified_name%>
+  <%= employee.name%>
   <%= employee.projects.each do |project| %>
-<% cache project do %>
-       <%= render partial: "employees/project", locals: {project: project} %>
-<%end%>
+
+       <%= render partial: "employees/project", locals: {project: project}, cached: true %>
+
 <%end%>
 </li>

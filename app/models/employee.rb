@@ -1,15 +1,21 @@
 class Employee < ApplicationRecord
 
   include MainConcern
+
   has_many :projects, -> {extending FindRecentExtension}, autosave: true, validate: true
   has_many :histories
   has_many :subordinates, class_name: "Employee",
            foreign_key: "manager_id"
   belongs_to :manager, class_name: 'Employee', optional: true
   has_many :pictures, as: :imageable
+
+  has_many_attached :pictures
+
   accepts_nested_attributes_for :projects
+
   validates :name, presence: true
   validates :salary, presence: true
+
   after_find :call_find
   after_initialize :call_initialize
   after_validation :call_after_validation
