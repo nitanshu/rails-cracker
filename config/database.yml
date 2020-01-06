@@ -13,7 +13,7 @@ development:
   <<: *default
   database: rails_cracker_dev
   username: root
-  password: ranusoni
+  password: mind@123
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -22,12 +22,12 @@ test:
   <<: *default
   database: rails_cracker_test
   username: root
-  password: ranusoni
+  password: mind@123
 
 production:
   <<: *default
   database: rails_cracker_pro
   username: root
-  password: ranusoni
+  password: mind@123
 
 
