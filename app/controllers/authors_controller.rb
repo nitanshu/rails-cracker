@@ -3,7 +3,6 @@ class AuthorsController < ApplicationController
 
   # before_action :authenticate
 def index
-  byebug
   flash[:notice] ='tattisdf'
   # redirect_to new_author_path
   # render plain: 'eeeeeeeeeeeee'

@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
+  root to: 'home#index'
+
   concern :image_attachable do
     get 'custom2', as: 'chutiya' , default: {format: 'json'}
   end
