@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comapnies
 
   get 'authors/index'
   require 'sidekiq/web'
@@ -7,18 +8,20 @@ Rails.application.routes.draw do
   root to: 'home#index'
 
   concern :image_attachable do
-    get 'custom2', as: 'chutiya' , default: {format: 'json'}
+    get 'preview_image', as: 'attach_image', default: { format: 'json' }
   end
-  namespace 'admin'  do
+
+  namespace 'admin' do
     resource :employees do
       resources :projects, shallow: true, concerns: :image_attachable
     end
   end
-  scope :shaakaal do
-    resources :authors
-  end
   resources :employees do
     get 'preview', on: :member
+  end
+
+  scope :shaakaal do
+    resources :authors, shallow: true
   end
 
   scope :beer do
@@ -26,16 +29,36 @@ Rails.application.routes.draw do
       get beer, controller: :projects
     end
   end
-  # resolve('Project') { [:projects] }
 
-  # resources :employees
-  #
-  # resources :employees do
-  #     get 'preview'
-  # end
+  scope '/admin', as: :colab do
+    resources :articles
+  end
 
-  # mount ModelInfo::Engine => '/model_info'
-  # resources :projects
-  # resolve('Project'){[:project]}
+  scope module: 'admin' do
+    resources :customer
+  end
 
+  resources :images do
+    get 'display', on: :member
+    get 'preview'
+    collection do
+      get 'search'
+    end
+  end
+
+  resources :suppliers, path: '/admin/suppliers'
+
+  resources :projects
+  resolve('Project') { [:project] }
+
+  direct :main do
+    { controller: 'authors', action: 'index', subdomain: 'www' }
+  end
+
+  direct :homepage do 
+    'mylink'
+  end
+
+  resources :categories, path: 'kategorien', path_names: { new: 'neu', edit: 'bearbeiten' }
+  resources :orders, shallow: false
 end

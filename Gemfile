@@ -41,12 +41,13 @@ end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
-  gem 'web-console'
+  gem 'letter_opener'
   gem 'listen'
+  gem 'meta_request'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen'
-  gem 'letter_opener'
+  gem 'web-console'
 end
 
 group :test do
@@ -69,4 +70,5 @@ gem 'sidekiq'
 gem 'sinatra'
 gem 'dalli'
 gem 'redis-namespace'
-gem 'model_info', '0.0.8'
+gem 'importmap-rails'
+gem 'model_info', '~>1.0.0'
