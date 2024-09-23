@@ -102,6 +102,9 @@ GEM
     chromedriver-helper (2.1.1)
       archive-zip (~> 0.10)
       nokogiri (~> 1.8)
+    ci_reporter (2.1.0)
+      builder (>= 2.1.2)
+      rexml
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
       railties (>= 5.2.0)
@@ -373,6 +376,7 @@ DEPENDENCIES
   byebug
   capybara
   chromedriver-helper
+  ci_reporter
   coffee-rails
   dalli
   draper
